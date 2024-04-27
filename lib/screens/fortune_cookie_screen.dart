@@ -11,6 +11,12 @@ class _FortuneCookieScreenState extends State<FortuneCookieScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.deepOrange,
+        foregroundColor: Colors.white,
+        centerTitle: true,
+        title: const Text('Fortune Cookie'),
+      ),
       body: Container(
         color: Colors.deepOrange,
         width: double.infinity,
