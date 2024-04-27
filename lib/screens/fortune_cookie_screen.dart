@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class FortuneCookieScreen extends StatefulWidget {
@@ -8,8 +10,8 @@ class FortuneCookieScreen extends StatefulWidget {
 }
 
 class _FortuneCookieScreenState extends State<FortuneCookieScreen> {
-  @override
   final List<String> _fortunes = [
+    "Click the icon to know your fortune",
     "Opportunities are endless when you seize them with courage.",
     "A journey of a thousand miles begins with a single step.",
     "Your kindness will lead you to unexpected blessings.",
@@ -22,13 +24,23 @@ class _FortuneCookieScreenState extends State<FortuneCookieScreen> {
     "Your smile is a key to unlock happiness in others."
   ];
 
+  int _index = 0;
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepOrange,
         foregroundColor: Colors.white,
         centerTitle: true,
-        title: const Text('Fortune Cookie'),
+        title: const Text(
+          'FORTUNE COOKIE',
+          style: TextStyle(
+            fontSize: 20,
+            letterSpacing: 4,
+            wordSpacing: 8,
+          ),
+        ),
       ),
       body: Container(
         color: Colors.deepOrange,
@@ -46,9 +58,10 @@ class _FortuneCookieScreenState extends State<FortuneCookieScreen> {
                 ),
                 borderRadius: BorderRadius.circular(15),
               ),
-              child: const Text(
-                'This is a dummy fortune cookie.',
-                style: TextStyle(
+              child: Text(
+                _fortunes[_index],
+                textAlign: TextAlign.center,
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -56,9 +69,17 @@ class _FortuneCookieScreenState extends State<FortuneCookieScreen> {
               ),
             ),
             const SizedBox(height: 16),
-            Image.asset(
-              'assets/images/fortune-cookie.png',
-              height: 200,
+            InkWell(
+              onTap: () {
+                setState(() {
+                  _index = Random().nextInt(_fortunes.length - 1) + 1;
+                  print(_index);
+                });
+              },
+              child: Image.asset(
+                'assets/images/fortune-cookie.png',
+                height: 200,
+              ),
             ),
           ],
         ),
