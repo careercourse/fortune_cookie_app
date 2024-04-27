@@ -23,6 +23,26 @@ class _FortuneCookieScreenState extends State<FortuneCookieScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Container(
+              padding: const EdgeInsets.all(16),
+              margin: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  width: 2,
+                  color: Colors.white,
+                ),
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: const Text(
+                'This is a dummy fortune cookie.',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
             Image.asset(
               'assets/images/fortune-cookie.png',
               height: 200,
