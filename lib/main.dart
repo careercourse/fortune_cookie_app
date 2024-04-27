@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fortune_cookie_app/screens/fortune_cookie_screen.dart';
+import 'package:fortune_cookie_app/presentation/screens/fortune_cookie_screen.dart';
 
 void main() {
   runApp(const MyApp());
